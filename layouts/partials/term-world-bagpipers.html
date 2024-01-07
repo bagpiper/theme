@@ -1,0 +1,31 @@
+<main id="main">
+
+<div class="ml-2">
+  {{ partial "breadcrumbs.html" . }}
+  {{ partial "pagination.html" . }}
+</div>
+
+<div class="grid grid-flow-row sm:grid-flow-col gap-3">
+      <div class="sm:col-span-4 flex  border-2 border-gray-200 rounded-xl p-6 bg-gray-100">
+          <div class="">
+              <h1 class="text-5xl mb-8 text-purple-800 font-bold capitalize" id="title">
+              {{ .Title  | humanize }}
+              </h1>
+                    <!-- {{ partial "tax_europe-list.html" . }} -->
+            {{ range (.Paginate .RegularPagesRecursive).Pages }}
+            {{ .Render "summary" }}
+            {{ end }}
+          </div>
+      </div>
+
+      <div class="flex border-2 border-gray-200 rounded-xl bg-gray-50 p-2">
+          <section class="mb-2 dark:bg-gray-900">
+	          <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-8">
+                       {{ partial "tax_world-bagpipers.html" . }}
+            
+              </div>
+          </section>
+      </div>
+      
+</div>
+</main>

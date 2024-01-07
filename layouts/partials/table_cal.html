@@ -1,0 +1,38 @@
+<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+           <th scope="col" class="px-6 py-3">
+          Title
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Link Title
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Number Index
+        </th>
+        <th scope="col" class="px-6 py-3">
+          MMDD
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Month
+        </th>
+        <th scope="col" class="px-6 py-3">
+          DD
+        </th>
+        <th scope="col" class="px-6 py-3">
+          YYYY
+        </th>
+          <th scope="col" class="px-6 py-3">
+          categories
+        </th>
+        <th scope="col" class="px-6 py-3">
+          tags
+        </th>
+      </tr>
+    </thead>
+    {{ range where .Site.RegularPages.ByTitle "Section" "calcon" }}
+    <tr>
+      {{ .Render "table-cal" }}
+    </tr>
+    {{ end }}
+  </table>

@@ -1,0 +1,80 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+
+
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+       2 Pipeband
+      </h2>
+      <p class="mt-4 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-xl">
+        The Best Pipers on the Block
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 mt-8 xl:gap-12 md:grid-cols-2">
+      
+
+   {{ $taxonomyObject := .Site.Taxonomies.twosponsors }}
+         {{ range $term, $weightedPages := $taxonomyObject }}
+  	   	{{ range $weightedPages }}
+
+<div class="p-5 space-y-4 bg-white border border-gray-200 rounded-lg shadow-md lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+      {{ $image := resources.Get (printf "%s" .Params.image) }}
+         {{ with $image }}
+         <img class="object-cover w-full rounded-lg shadow-lg" src="{{ ( $image.Fill "358x420 top webp q80" ).RelPermalink }}" alt="Bagpiper" />
+         {{ end }}
+
+
+
+        <div>
+          <div class="flex items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+              <span class="text-lg capitalize font-bold text-gray-900 dark:text-white">
+                {{ .Params.Links }} in 
+              </span>
+              <span class="text-sm capitalize font-normal text-gray-500 dark:text-gray-400">
+                 {{ .Params.Countries }}  {{ .Params.City }}
+              </span>
+            </div>
+            <span class="text-xs font-normal text-right text-gray-500 dark:text-gray-400">
+               {{ .Params.Continents }}
+            </span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-0.5 dark:bg-gray-700 mt-1">
+            <div class="bg-primary-600 h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">
+                      {{ .Title }}
+        </h3>
+        <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+             {{ .Summary }}        </p>
+
+        <div class="flex flex-col gap-4 sm:flex-row md:flex-col lg:flex-row lg:items-center">
+          <a href="#" title=""
+            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            role="button">
+            Donate now
+          </a>
+
+          <a href="{{ .Page.RelPermalink }}" title=""
+            class="px-5 py-2.5 text-sm justify-center font-medium text-gray-900 inline-flex items-center focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            role="button">
+            <svg aria-hidden="true" class="w-5 h-5 mr-2 -ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path
+                d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+            </svg>
+           View this Piper
+          </a>
+        </div>
+      </div>
+
+       {{ end }}
+
+         {{ end }}
+
+
+
+</section>

@@ -1,0 +1,14 @@
+
+<h3 class="mt-4 mb-2 font-black">Musicians by Instrument</h3>
+		{{ $taxo := "bagpiper-categories" }}
+			<ul class="">
+				{{ with ($.Site.GetPage (printf "/%s" $taxo)) }}
+			{{ range .Pages.ByTitle }}
+        		{{ .Render "li" }}
+        	{{ end }}
+				{{ end }}
+			</ul>
+
+
+
+

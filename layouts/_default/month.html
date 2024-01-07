@@ -1,0 +1,21 @@
+
+<div class="flex-2 lg:flex-4">
+
+     <div class="relative  w-32 h-16 lg:shrink-0">
+          {{ $image := resources.Get (printf "%s" .Params.image) }}
+          {{ with $image }}
+          <img src="{{ ( $image.Fill "1000x500 top webp q80" ).RelPermalink }}" class="absolute inset-0 h-full w-full rounded-xl shadow-xl bg-skin-base object-fill" alt="{{ .Params.img_desc }}" loading="lazy">
+          {{ end }}
+     </div>
+
+     <div class="mx-auto text-center">
+
+          <h3 class="mb-2 mx-auto">
+               <a class="capitalize font-semibold text-base text-center no-underline mb-0  text-skin-base dark:text-skin-inverted" href="{{ .Permalink }}">
+                    {{ .Title }}
+               </a>
+          </h3>
+
+      </div>
+
+</div>

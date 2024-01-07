@@ -1,0 +1,10 @@
+<h1 class="font-black text-blue-500 mt-8">Canada</h1>
+{{ $taxonomyObject := .Site.Taxonomies.canada }}
+{{ range $term, $weightedPages := $taxonomyObject }}
+<h2 class="mt-8"><a  class="uppercase text-2xl font-black text-green-500" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a></h2>
+  <ul>
+    {{ range $weightedPages }}
+      <li class="text-red-500"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}

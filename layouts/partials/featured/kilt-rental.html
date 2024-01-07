@@ -1,0 +1,12 @@
+	<div class="bg-blue-50 rounded-2xl shadow-lg">
+	  {{ $taxonomyObject := .Site.Taxonomies.featured }}
+	  <h2 class="font-black text-center mt-2"> Kilt Rental</h2>
+	  <ul class="list-disc px-8 py-4">
+	    {{ $weightedPages := $taxonomyObject.Get "kilt-rental" }}
+	    {{ range $weightedPages }}
+	    <li class="capitalize">
+	      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+	    </li>
+	    {{ end }}
+	  </ul>
+	</div>

@@ -1,0 +1,10 @@
+<div>
+<h3 class="mt-4 mb-2 font-black text-blue-500">
+	 {{ .Title | humanize }}	</h3>
+   <p class="mb-2 text-xs"> {{ .Description | humanize }}</p>
+     	<ul class="">
+    	{{ range .Pages.ByTitle }}
+        {{ .Render "li" }}
+        {{ end }}
+        <ul>
+  </div>

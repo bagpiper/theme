@@ -1,0 +1,67 @@
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Name
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Links
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Continents
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Country
+        </th>
+        <th scope="col" class="px-6 py-3">
+          States
+        </th>
+        <th scope="col" class="px-6 py-3">
+          County
+        </th>
+        <th scope="col" class="px-6 py-3">
+          City
+        </th>
+                <th scope="col" class="px-6 py-3">
+          categories
+        </th>
+        <th scope="col" class="px-6 py-3">
+          tags
+        </th>
+      </tr>
+    </thead>
+    {{ range where .Site.RegularPages.ByTitle "Section" "bagpiper" }}
+    <tr>
+      {{ .Render "table-bagpiper" }}
+    </tr>
+    {{ end }}
+
+    {{ range where .Site.RegularPages.ByTitle "Section" "pipeband" }}
+    <tr>
+      {{ .Render "table-bagpiper" }}
+    </tr>
+    {{ end }}
+
+    {{ range where .Site.RegularPages.ByTitle "Section" "shop" }}
+    <tr>
+      {{ .Render "table-bagpiper" }}
+    </tr>
+    {{ end }}
+
+    {{ range where .Site.RegularPages.ByTitle "Section" "instructor" }}
+    <tr>
+      {{ .Render "table-bagpiper" }}
+    </tr>
+    {{ end }}
+
+    {{ range where .Site.RegularPages.ByTitle "Section" "bagpipes" }}
+    <tr>
+      {{ .Render "table-bagpiper" }}
+    </tr>
+    {{ end }}
+    {{ range where .Site.RegularPages.ByTitle "Section" "blog" }}
+    <tr>
+      {{ .Render "table-bagpiper" }}
+    </tr>
+    {{ end }}
+  </table>

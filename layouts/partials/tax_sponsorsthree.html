@@ -1,0 +1,48 @@
+ <section class="bg-white dark:bg-gray-900">
+   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+     <div class="text-center text-gray-900">
+       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 lg:text-5xl dark:text-white">Featured 3 Bagpipers</h2>
+       <a href="/join" class="inline-flex items-center text-lg font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700">
+         Learn more about joining
+         <svg class="ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+         </svg>
+       </a>
+     </div>
+     
+     {{ $taxonomyObject := .Site.Taxonomies.threesponsors }}
+         {{ range $term, $weightedPages := $taxonomyObject }}
+  <h2 class="mt-8 bg-blue-500 p-1 m-2 text-center">
+    <a class="uppercase text-lg font-black text-white" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+  </h2>
+
+     <div class="grid gap-6 mt-12 lg:mt-14 lg:gap-12 md:grid-cols-3">
+
+   
+
+         {{ range $weightedPages }}
+       <div class="flex mb-2 md:flex-col md:mb-0">
+ <a class="" href="{{ .Page.RelPermalink }}">
+      
+
+         {{ $image := resources.Get (printf "%s" .Params.image) }}
+         {{ with $image }}
+         <img class="mr-4 w-auto h-36 md:w-full md:h-auto rounded-lg" src="{{ ( $image.Fill "358x420 top webp q80" ).RelPermalink }}" alt="Bagpiper" />
+         {{ end }}
+
+         <div>
+           <h3 class="text-xl capitalize font-bold md:mt-4 mb-2.5 text-gray-900 dark:text-white">                         {{ .Title }}
+           </h3>
+           <p class="text-gray-500 capitalize dark:text-gray-400">
+             {{ .Description }}
+           </p>    </a>
+          </div>
+        
+          </div>
+         {{ end }}
+
+         {{ end }}
+     </div>
+
+
+ </section>

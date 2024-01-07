@@ -1,0 +1,22 @@
+  <section class="bg-white dark:bg-gray-900">
+  	<div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+ <div class="text-center text-gray-900">
+       <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 lg:text-5xl dark:text-white">Featured Link</h2>
+     </div>
+  		<div class="flex">
+  			<div class="flex flex-wrap gap-8">
+
+			  {{ partial "featured/bagpipe-makers.html" . }}
+			  {{ partial "featured/kilts.html" . }}
+			  {{ partial "featured/kilt-rental.html" . }}
+			  {{ partial "featured/gifts.html" . }}
+
+  			{{ $taxonomyObject := .Site.Taxonomies.featured }}
+
+  		
+
+  				
+  			</div>
+  		</div>
+
+  </section>

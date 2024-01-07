@@ -1,0 +1,26 @@
+<div class="flex flex-wrap gap-8">
+  {{ $taxonomyObject := .Site.Taxonomies.platinum }}
+  {{ range $term, $weightedPages := $taxonomyObject }}
+  <h2 class="mt-8 bg-blue-500 p-1 m-2 text-center">
+    <a class="uppercase text-lg font-black text-white" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+  </h2>
+  {{ range $weightedPages }}
+    <article class="flex flex-row gap-8 lg:flex-row">
+
+        {{ $image := resources.Get (printf "%s" .Params.image) }}
+        {{ with $image }}
+        <img src="{{ ( $image.Fill "1000x500 top webp q80" ).RelPermalink }}" class="w-full" alt="{{ .Params.img_desc }}" loading="lazy">
+        {{ end }}
+        <h3 class="mb-2">
+          <a class="capitalize font-black text-2xl no-underline mb-0  text-skin-base dark:text-skin-inverted" href="{{ .Permalink }}">
+            {{ .Title }}
+          </a>
+        </h3>
+          {{ .Description }}
+          {{ .Summary }}
+    </article>
+  {{ end }}
+  {{ end }}
+</div>
+
+

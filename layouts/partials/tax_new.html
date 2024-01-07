@@ -1,0 +1,38 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+       New Links
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-8 xl:gap-4 md:grid-cols-6">
+      {{ $taxonomyObject := .Site.Taxonomies.new }}
+      {{ $weightedPages := $taxonomyObject.Get "new" }}
+      {{ range $weightedPages }}
+          <a href="{{ .Page.RelPermalink }}" title="{{ .Title }}">
+
+      <div class="p-0 space-y-4 bg-stone-50 border border-gray-200 rounded-lg  lg:p-0 dark:bg-gray-800 dark:border-gray-700">
+        {{ $image := resources.Get (printf "%s" .Params.image) }}
+        {{ with $image }}
+        <img class="object-cover w-full rounded-t-lg shadow-lg" src="{{ ( $image.Fill "358x420 top webp q80" ).RelPermalink }}" alt="Bagpiper" />
+        {{ end }}
+              <div>
+        </div>
+ <div class="p-5 md:p-2 h-24">
+        <h3 class="text-xl md:text-md capitalize font-bold leading-tight text-gray-900 dark:text-white">
+          {{ .Title }}
+        </h3>
+        <p class="text-xl md:text-xs capitalize font-normal text-gray-500 dark:text-gray-400">
+          {{ .Description }}
+        </p>
+  </div>
+
+        </div>
+      </a>
+
+      {{ end }}
+
+
+
+
+</section>

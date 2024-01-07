@@ -1,0 +1,19 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+    <div class="flex flex-wrap gap-12 py-2">
+      {{ $taxonomyObject := .Site.Taxonomies.states }}
+      {{ range $term, $weightedPages := $taxonomyObject }}
+        <ul>  
+            <li class="">
+            <a  class="uppercase text-lg font-black text-stone-500" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+           </li>
+          {{ range $weightedPages }}
+            <li class="text-stone-500 capitalize"><a class="hover:text-purple-600"href="{{ .RelPermalink }}">
+            {{ .LinkTitle }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+	</div>
+</section>  

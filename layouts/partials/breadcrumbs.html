@@ -1,0 +1,6 @@
+<ul  class="flex gap-8 mt-8 mb-8 capitalize text-purple-800 underline" id="breadcrumbs">
+    {{- range .Ancestors.Reverse }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title  | humanize }}</a></li>
+    {{- end }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title  | humanize }}</a></li>
+</ul>

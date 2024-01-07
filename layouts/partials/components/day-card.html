@@ -1,0 +1,27 @@
+<div class="bg-white dark:bg-darkmode-body mb-8">
+ <div class="overflow-hidden object-cover">
+  {{ $image:= .Params.image }}
+  {{ if $image }}
+    {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mb-6 w-full h-96 rounded-t-xl") }}
+  {{ end }}
+</div>
+<div class="m-4">
+  <h4 class="mb-3 mt-2">
+    <a href="{{ .RelPermalink }}">
+     {{ .Title }}
+    </a>
+  </h4>
+  <ul class="mb-4">
+    <li class="mr-4 inline-block">
+      <a href="{{ .RelPermalink }}">
+        <i class="fa-regular fa-calendar mr-2"></i>{{ .Params.LinkTitle }}
+      </a>
+    </li>
+
+  </ul>
+  <p class="mb-6">{{ .Summary }}</p>
+  <a class="mb-6 btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+    {{ i18n "read_more" }}
+  </a>
+</div>
+</div>

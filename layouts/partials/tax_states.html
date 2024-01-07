@@ -1,0 +1,15 @@
+<section class="bg-blue-50 mb-8  dark:bg-gray-900 rounded-lg shadow-lg">
+	<div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-12">
+		<h1 class="font-black text-3xl text-stone-700  mt-2 mb-4">United States</h1>
+		{{ $taxonomyObject := .Site.Taxonomies.unitedstates }}
+		<div class="flex">
+			<ul class="flex flex-wrap gap-3">
+				{{ range $term, $weightedPages := $taxonomyObject }}
+				<li class="mt-2">
+					<a class="capitalize text-md font-normal text-stone-500" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
+	</div>
+</section>

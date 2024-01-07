@@ -1,0 +1,13 @@
+{{ $taxonomyObject := .Site.Taxonomies.canada }}
+    <h1 class="text-5xl mb-8 text-purple-800 font-bold capitalize" id="title">
+              {{ .Title  | humanize }}
+              </h1>
+<div class="flex">
+	<ul class="flex flex-wrap gap-3">
+		{{ range $term, $weightedPages := $taxonomyObject }}
+		<li class="mt-2 ml-4">
+			<a class="" href="{{ .Page.RelPermalink }}"><span class="capitalize text-md font-normal text-stone-500">{{ .Page.LinkTitle }} </span> <span class="capitalize text-xs font-normal text-purple-500">({{ .Count }})</span></a>
+		</li>
+		{{ end }}
+	</ul>
+</div>

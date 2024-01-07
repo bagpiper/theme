@@ -1,0 +1,9 @@
+<div>
+ {{ partial "breadcrumbs.html" . }}
+    <h1 class="text-8xl mb-24 text-red-800 font-bold capitalize" id="title">
+	 {{ .Title | humanize }}
+	</h1>
+    	{{ range .Pages.ByTitle }}
+        {{ .Render "number" }}
+    {{ end }}
+  </div>

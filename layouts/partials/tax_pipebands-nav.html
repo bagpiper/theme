@@ -1,0 +1,11 @@
+
+		{{ $taxonomyObject := .Site.Taxonomies.pipebands.Get "world"}}
+		<div class="flex mb-8">
+			<ul class="flex flex-row underline gap-8">
+				{{ range $term, $weightedPages := $taxonomyObject }}
+				<li class="text-sm text-stone-500 capitalize">
+					<a class="font-normal hover:text-purple-700" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
